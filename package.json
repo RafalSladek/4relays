@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "blynk-library": "^0.5.2",
-    "onoff": "^3.1.0"
+    "onoff": "^3.1.0",
+    "yargs": "^11.0.0"
   }
 }

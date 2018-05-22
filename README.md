@@ -5,6 +5,6 @@
 ```npm i```
 
 ### How to run
-```node index.js```
+```node index.js -t <Blynk-TOKEN>```
 
 

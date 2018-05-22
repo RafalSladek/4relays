@@ -1,20 +1,19 @@
-let Blynk = require('blynk-library');
-let Gpio = require('onoff').Gpio;
+const Blynk = require('blynk-library');
+const Gpio = require('onoff').Gpio;
+const argv = require('./cli');
+const AUTH = argv.t;
+const blynk = new Blynk.Blynk(AUTH);
 
-let relay1 = new Gpio(2,'out');
-let relay2 = new Gpio(3,'out');
-let relay3 = new Gpio(4,'out');
-let relay4 = new Gpio(17,'out');
+const relay1 = new Gpio(2,'out');
+const relay2 = new Gpio(3,'out');
+const relay3 = new Gpio(4,'out');
+const relay4 = new Gpio(17,'out');
 
-let AUTH = '9922fbffbb7e42aebd71032ff9f5e759';
-
-var blynk = new Blynk.Blynk(AUTH);
-
-var v1 = new blynk.VirtualPin(1);
-var v2 = new blynk.VirtualPin(2);
-var v3 = new blynk.VirtualPin(3);
-var v4 = new blynk.VirtualPin(4);
-var v9 = new blynk.VirtualPin(9);
+const v1 = new blynk.VirtualPin(1);
+const v2 = new blynk.VirtualPin(2);
+const v3 = new blynk.VirtualPin(3);
+const v4 = new blynk.VirtualPin(4);
+const v9 = new blynk.VirtualPin(9);
 
 v1.on('write', function(param) {
 	controlPin(relay1, param);  
@@ -28,7 +27,7 @@ v9.on('read', function() {
 
 
 function controlPin(pin, value) {
-	if(value == '1') {
+	if (value == '1') {
 		console.log("On");
 		pin.writeSync(1);
 	} else {
