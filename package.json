@@ -1,0 +1,15 @@
+{
+  "name": "4relays",
+  "version": "1.0.0",
+  "description": "blynk-app to control 4 power relays",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "blynk-library": "^0.5.2",
+    "onoff": "^3.1.0"
+  }
+}
