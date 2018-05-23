@@ -1,0 +1,19 @@
+[Unit]
+Description=Blynk Lib service
+After=network.target
+[Service]
+Type=forking
+User=pi
+Group=pi
+WorkingDirectory=/opt/4relays
+ExecStart=/usr/bin/node /opt/4relays/index.js <BLYNK_TOKEN>
+ExecStop=sudo killall node
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=10s
+StartLimitInterval=120s
+StartLimitBurst=5
+  
+[Install]
+WantedBy=multi-user.target
