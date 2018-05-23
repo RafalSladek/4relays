@@ -13,10 +13,10 @@ export BLYNK_TOKEN=<YOUR_BLYNK_TOKEN_HERE>
 
 ### How to install blynk app as a service
 ```
-sudo copy blynkApp.service /etc/systemd/system/blynkApp.service
+sudo cp blynkApp.service /etc/systemd/system/blynkApp.service
 sudo systemctl daemon-reload
 sleep 3
-systemctl start blynkApp.service
-systemctl enable blynkApp.service >/dev/null 2>&1
-systemctl status blynkApp.service
+sudo systemctl start blynkApp.service
+sudo systemctl enable blynkApp.service >/dev/null 2>&1
+sudo systemctl status blynkApp.service
 ```
