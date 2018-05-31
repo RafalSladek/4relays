@@ -21,14 +21,10 @@ v1.on('write', function (param) {
 	controlPin(relay2, param);
 	controlPin(relay3, param);
 	controlPin(relay4, param);
-	console.log('V1:', param[0]);
-	console.log('V2:', param[0]);
-	console.log('V3:', param[0]);
-	console.log('V4:', param[0]);
 });
 
 v9.on('read', function () {
-	v9.write(new Date().getSeconds());
+	v9.write(new Date());
 });
 
 
@@ -36,9 +32,11 @@ function controlPin(pin, value) {
 	if (value == '1') {
 		console.log("On");
 		pin.writeSync(1);
+		console.log(pin.name, value);
 	} else {
 		console.log("Off");
 		pin.writeSync(0);
+		console.log(pin.name, value);
 	}
 }
 
@@ -59,7 +57,7 @@ var sensor = {
 				b.temperature.toFixed(1) + "°C, " +
 				b.humidity.toFixed(1) + "%");
 			blynk.virtualWrite(2, this.sensors[a].name);
-			blynk.virtualWrite(3, b.temperature.toFixed(1) + "\xc2\xb0C, ");
+			blynk.virtualWrite(3, b.temperature.toFixed(1) + "\xc2\xb0C");
 			blynk.virtualWrite(4, b.humidity.toFixed(1) + "%");
 		}
 		setTimeout(function () {
