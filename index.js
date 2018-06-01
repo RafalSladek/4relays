@@ -74,3 +74,6 @@ process.on('SIGINT', function () {
 	relay3.unexport();
 	relay4.unexport();
 });
+
+blynk.on('connect', function() { console.log("Blynk ready."); });
+blynk.on('disconnect', function() { console.log("DISCONNECT"); });
